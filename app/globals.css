@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #fdf8f1;
+  --color-blush: #ffe3e9;
+  --color-blush-deep: #ffc9d4;
+  --color-lilac: #eae1fb;
+  --color-lilac-deep: #d9c8f9;
+  --color-sky: #dcf0fb;
+  --color-sky-deep: #bfe6f7;
+  --color-ink: #362e45;
+  --color-ink-soft: #6b6178;
+  --color-coral: #ff6f61;
+  --color-coral-dark: #e85a4d;
+  --color-sun: #ffc85c;
+  --color-mint: #7bcfb6;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-blush: var(--color-blush);
+  --color-blush-deep: var(--color-blush-deep);
+  --color-lilac: var(--color-lilac);
+  --color-lilac-deep: var(--color-lilac-deep);
+  --color-sky: var(--color-sky);
+  --color-sky-deep: var(--color-sky-deep);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-coral: var(--color-coral);
+  --color-coral-dark: var(--color-coral-dark);
+  --color-sun: var(--color-sun);
+  --color-mint: var(--color-mint);
+
+  --font-display: "Baloo 2";
+  --font-sans: "Plus Jakarta Sans";
+
+  --radius-xl2: 1.75rem;
+
+  --animate-fade-up: fade-up 0.7s ease forwards;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: "Baloo 2", ui-rounded, sans-serif;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-float {
+    animation: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-coral);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-blush-deep);
+  color: var(--color-ink);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
